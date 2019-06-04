@@ -1,0 +1,9 @@
+[07-Jul-2016 20:38:20 America/New_York] PHP Fatal error:  Call to undefined function add_action() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/functions.php on line 13
+[03-Aug-2016 01:53:48 America/New_York] PHP Fatal error:  Call to undefined function add_action() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/functions.php on line 13
+[03-Aug-2016 10:28:53 America/New_York] PHP Fatal error:  Call to undefined function add_action() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/functions.php on line 13
+[06-Aug-2016 00:27:38 America/New_York] PHP Fatal error:  Call to undefined function add_action() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/functions.php on line 13
+[06-Aug-2016 08:29:35 America/New_York] PHP Fatal error:  Call to undefined function add_action() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/functions.php on line 13
+[07-Aug-2016 15:02:33 America/New_York] PHP Fatal error:  Call to undefined function get_template_directory_uri() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/footer.php on line 45
+[10-Aug-2016 13:38:52 America/New_York] PHP Fatal error:  Call to undefined function add_action() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/functions.php on line 13
+[23-Nov-2018 19:40:37 America/New_York] PHP Fatal error:  Call to undefined function get_fields() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/index.php on line 2
+[27-Dec-2018 10:49:34 America/New_York] PHP Fatal error:  Call to undefined function get_fields() in /home/mysaintu/public_html/wp-content/themes/mysaintursula/index.php on line 2

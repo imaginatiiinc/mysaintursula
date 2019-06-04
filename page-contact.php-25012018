@@ -1,0 +1,113 @@
+<?php
+$page_fields = get_fields();
+get_header();
+if ( have_posts() ) : while ( have_posts() ) : the_post();
+?>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+					
+						<img src="http://mysaintursula.com/wp-content/uploads/2015/12/FullSizeRender.jpg" class="img-responsive" />
+					
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2><?php the_title(); ?></h2>
+					<hr/>
+					<div>
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2014/03/Talbot-Molly-resized-150x150.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Molly Talbot</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">Vice President of Advancement</h4>
+						<p>Phone: (513) 961-3410 Ext.187 Email: <a href="mailto:mtalbot@saintursula.org">mtalbot@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+					<div>
+
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-	content/uploads/2017/07/Beardsley_Bailey-resized.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Bailey Beardsley</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">Alumnae Relations Director</h4>
+						<p>Phone: (513) 961-3410 Ext.176 Email: <a href="mailto:bbeardsley@saintursula.org">bbeardsley@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+					<div>
+
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2017/07/Lintner_Mary-Ellen-Large.jpg " width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Mary Ellen Lintner</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">Special Events Director</h4>
+						<p>Phone: (513) 961-3410 Ext.147 Email: <a href="mailto:mlintner@saintursula.org">mlintner@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+					<div>
+				
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2016/05/f-Bryans-Barbara-0042.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Barb Bryans '77</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">Administrative Assistant for Advancement</h4>
+						<p>Phone: (513) 961-3410 Ext.148 Email: <a href="mailto:bbryans@saintursula.org">bbryans@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+					<div>
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2016/05/F-Eby-Patrice-6060.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Patrice Eby</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">Executive Assistant to the President</h4>
+						<p>Phone: (513) 961-3410 Ext.132 Email: <a href="mailto:peby@saintursula.org">peby@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+					<div>
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2016/05/Lelia-Kramer-e1464009844393.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Lelia Keefe Kramer '77</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">President</h4>
+						<p>Phone: (513) 961-3410 Ext. 162 Email: <a href="mailto:lkramer@saintursula.org">lkramer@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+					<div>
+						
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2016/05/f-Cahill-Jill-0056.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Jill Grever Cahill '84</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">Vice President of Communication</h4>
+						<p>Phone: (513) 961-3410 Ext.138 Email: <a href="mailto:jcahill@saintursula.org">jcahill@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+					<div>
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2016/05/f-Spille-Meredith-5483.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Meridith Spille</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">The Saint Ursula Fund Director</h4>
+						<p>Phone: (513) 961-3410 Ext.151 Email: <a href="mailto:mspille@saintursula.org">mspille@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+
+					
+					<div>
+						<img style="float: left; margin-right: 20px;" src="http://mysaintursula.com/wp-content/uploads/2014/03/f-bell-misha-0564-150x150.jpg" width="74" height="74" />
+						<h3 style="margin-bottom: 6px;">Misha Bell</h3>
+						<h4 style="margin-top: 0px; margin-bottom: 6px;">Marketing and Social Media Coordinator</h4>
+						<p>Phone: (513) 961-3410 Ext.186 Email: <a href="mailto:mbell@saintursula.org">mbell@saintursula.org</a></p>
+						<div style="clear: both;"></div>
+					</div>
+					<hr/>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php
+endwhile; endif;
+get_footer();
+?>

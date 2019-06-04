@@ -1,0 +1,113 @@
+<?php
+get_header();
+?>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+					<!--<img src="http://placehold.it/1140x450">-->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+					<div style="text-align: center; margin-bottom: 60px; font-size: 24px; color: rgb(254, 205, 51); font-weight: 700;">
+						<a href="<?php echo site_url(); ?>" style="color: rgb(1, 44, 95);">All</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/academics/'); ?>" style="color: rgb(1, 44, 95);">Academics</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/athletics/'); ?>" style="color: rgb(1, 44, 95);">Athletics</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/studentlife/'); ?>" style="color: rgb(1, 44, 95);">Student Life</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/finearts/'); ?>" style="color: rgb(1, 44, 95);">Fine Arts</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/events/'); ?>" style="color: rgb(1, 44, 95);">Events</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/birthscareersadoptions/'); ?>" style="color: rgb(1, 44, 95);">Births / Careers / Adoptions</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/prayersneeded/'); ?>" style="color: rgb(1, 44, 95);">Prayers Needed</a>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+						<a href="<?php echo site_url( '/category/obituaries/'); ?>" style="color: rgb(1, 44, 95);">Obituaries</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+                <div class="col-lg-12">
+                    <h2><?php single_cat_title(); ?></h2>
+					<hr/>
+					<div class="row">
+						<div class="col-lg-6" style="background-color: #012C5F; height: 400px;">
+							<h1 style="color: white; text-align: center; position: relative; top: 40%; margin-top: 0px; text-shadow: 2px 2px 4px #000000;">SUA meets silent phase goal of Open the Doors Capital Campaign!</h1>
+						</div>
+						<div class="col-lg-6">
+							<div class="row">
+								<div class="col-lg-6" style="background-color: #00A3C4; height: 200px; background-repeat: no-repeat; background-size: cover; background-image: url(http://www.saintursula.org/GalleryImages/20151020142629808_image.JPG);">
+									<h3 style="color: white; text-align: center; position: relative; top: 30%; margin-top: 0px; text-shadow: 2px 2px 4px #000000;">2015-2016 National Merit Students</h3>
+								</div>
+								
+								<div class="col-lg-6" style="background-color: #F54945; height: 200px; background-repeat: no-repeat; background-size: cover; background-image: url(http://www.saintursula.org/GalleryImages/20151111122257700_image.jpg);">
+									<h3 style="color: white; text-align: center; position: relative; top: 40%; margin-top: 0px; text-shadow: 2px 2px 4px #000000;">Headline with picture</h3>
+								</div>
+								
+								<div class="col-lg-6" style="background-color: #FFB053; height: 200px; background-repeat: no-repeat; background-size: cover; background-image: url(http://www.saintursula.org/GalleryImages/20151161502232_image.JPG);">
+									<h3 style="color: white; text-align: center; position: relative; top: 40%; margin-top: 0px; text-shadow: 2px 2px 4px #000000;">Canned Food Drive 2015</h3>
+								</div>
+								
+								<div class="col-lg-6" style="background-color: #F2F2F2; height: 200px; background-repeat: no-repeat; background-size: cover; background-image: url(http://www.saintursula.org/GalleryImages/20151025154033245_image.JPG);">
+									<h3 style="color: white; text-align: center; position: relative; top: 45%; margin-top: 0px; text-shadow: 2px 2px 4px #000000;">Open House 2015</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr/>
+					<div class="row" style="margin-top: 40px;">
+						<div class="col-lg-12">
+							<div class="post-preview">
+								<a href="#" style=" color: rgb(1, 44, 95); text-decoration: none;">
+									<h2 class="post-title" style="font-size: 30px; color: #00A3C4;">First Honors - Q1</h2>
+									<p style="margin-bottom: 0px;">Click here to see who made the honors list!</p>
+								</a>
+								<p class="post-meta">Posted in: <a href="#" style="color: #00A3C4;"><strong>Academics</strong></a></p>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-top: 40px;">
+						<div class="col-lg-12">
+							<div class="post-preview">
+								<a href="#" style=" color: rgb(1, 44, 95); text-decoration: none;">
+									<h2 class="post-title" style="font-size: 30px; color: #F54945;">Saint Ursula Academy Student Participates in Global Leadership Adventures in Tanzania </h2>
+									<p style="margin-bottom: 0px;">Every day at Saint Ursula Academy, students are challenged to "build a better world". Amy Schloss '16 of Hyde Park took this challenge to heart over her summer break by spending three weeks in Tanzania where she taught English classes, renovated classrooms, built desks, and planted gardens.</p>
+								</a>
+								<p class="post-meta">Posted in: <a href="#" style="color: #F54945;"><strong>Athletics</strong></a></p>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-top: 40px;">
+						<div class="col-lg-12">
+							<div class="post-preview">
+								<a href="#" style=" color: rgb(1, 44, 95); text-decoration: none;">
+									<h2 class="post-title" style="font-size: 30px; color: #FFB053;">Saint Ursula Academy Student Participates in Global Leadership Adventures in Tanzania </h2>
+									<p style="margin-bottom: 0px;">Every day at Saint Ursula Academy, students are challenged to "build a better world". Amy Schloss '16 of Hyde Park took this challenge to heart over her summer break by spending three weeks in Tanzania where she taught English classes, renovated classrooms, built desks, and planted gardens.</p>
+								</a>
+								<p class="post-meta">Posted in: <a href="#" style="color: #FFB053;"><strong>Community Service</strong></a></p>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-top: 40px;">
+						<div class="col-lg-12">
+							<div class="post-preview">
+								<a href="#" style=" color: rgb(1, 44, 95); text-decoration: none;">
+									<h2 class="post-title" style="font-size: 30px; color: #012C5F;">Showcase Night</h2>
+									<p style="margin-bottom: 0px;">This two-hour program for 7th and 8th graders and parents will "showcase" the many parts of the Saint Ursula education. Get inside information on academic programs, extracurricular activities, community service, and college guidance. </p>
+								</a>
+								<p class="post-meta">Posted in: <a href="#" style="color: #012C5F;"><strong>Events</strong></a></p>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php
+get_footer();
+?>

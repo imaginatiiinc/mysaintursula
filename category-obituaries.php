@@ -1,0 +1,158 @@
+<?php
+$user_fields = get_fields($_SESSION['level10']['purl_id']);
+get_header();
+
+$search_criteria['field_filters'][] = array( 'key' => 'is_starred', 'value' => true );
+$posts = GFAPI::get_entries( 4, $search_criteria);
+
+switch(single_cat_title('', false)) {
+	case 'Academics':
+			$color = get_field('academics','options');
+			break;
+		case 'Athletics':
+			$color =get_field('athletics','options');
+			break;
+		case 'Catching Up':
+			$color = get_field('catching_up','options');
+			break;
+		case 'Events':
+			$color = get_field('events','options');
+			break;
+		case 'Obituaries':
+			$color = get_field('obituaries','options');
+			break;
+		case 'Prayers Needed':
+			$color = get_field('prayers_needed','options');
+			break;
+		case 'Student Life':
+			$color = get_field('student_life','options');
+			break;
+	} 
+?>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+					<?php if(!empty($page_fields['banner_image']['url'])) { ?>
+						<img src="<?php echo $page_fields['banner_image']['url']; ?>" class="img-responsive" />
+					<?php } ?>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+					<div style="text-align: center; margin-bottom: 60px; font-size: 20px; color: rgb(254, 205, 51); font-weight: 700;">
+						<span style="white-space: nowrap;">
+							<a href="<?php echo site_url(); ?>" style="color: <?php echo get_field('all','options'); ?>;">All</a>
+						</span>
+						<span style="white-space: nowrap;">
+							&nbsp;&nbsp;&nbsp;
+							<a href="<?php echo site_url( '/category/academics/'); ?>" style="color: <?php echo get_field('academics','options'); ?>">Academics</a>
+						</span>
+						<span style="white-space: nowrap;">
+							&nbsp;&nbsp;&nbsp;
+							<a href="<?php echo site_url( '/category/athletics/'); ?>" style="color: <?php echo get_field('athletics','options'); ?>">Athletics</a>
+						</span>
+						<span style="white-space: nowrap;">
+							&nbsp;&nbsp;&nbsp;
+							<a href="<?php echo site_url( '/category/studentlife/'); ?>" style="color: <?php echo get_field('student_life','options'); ?>">Student Life</a>
+						</span>
+						<span style="white-space: nowrap;">
+							&nbsp;&nbsp;&nbsp;
+							<a href="<?php echo site_url( '/category/events/'); ?>" style="color: <?php echo get_field('events','options'); ?>;">Events</a>
+						</span>
+						<span style="white-space: nowrap;">
+							&nbsp;&nbsp;&nbsp;
+							<a href="<?php echo site_url( '/category/birthscareersadoptions/'); ?>" style="color: <?php echo get_field('catching_up','options'); ?>">Alumnae Updates</a>
+						</span>
+						<span style="white-space: nowrap;">
+							&nbsp;&nbsp;&nbsp;
+							<a href="<?php echo site_url( '/category/prayersneeded/'); ?>" style="color: <?php echo get_field('prayers_needed','options'); ?>">Prayers Needed</a>
+						</span>
+						<span style="white-space: nowrap;">
+							&nbsp;&nbsp;&nbsp;
+							<a href="<?php echo site_url( '/category/obituaries/'); ?>" style="color: <?php echo get_field('obituaries','options'); ?>">Obituaries</a>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+                <div class="col-lg-12">
+					<div class="row">
+						<div class="col-lg-9">
+							<h2 style=" color: <?=$color;?>;"><?php single_cat_title(); ?></h2>
+						</div>
+						<div class="col-lg-3 pull-right">
+							<a href="#" id="gotoform" style="color:#000080;font-size:23px">POST A NEW OBITUARY</a>
+						</div>
+					</div>
+                    
+					<hr/>
+<?php
+$fields = get_fields(get_the_ID());
+if(!empty($posts)) {
+	foreach ($posts as $post) {
+?>
+					<div class="row" style="margin-top: 20px;">
+						<div class="col-lg-12">
+							<div class="post-preview">
+								<h2 class="post-title" style="margin-bottom: 10px; font-size: 30px; color: <?=$color;?>;"><?php echo date('F j, Y, g:i a', strtotime($post['date_created'])); ?></h2>
+								<?php echo wpautop($post[6]); ?>
+								<p class="post-meta">
+									Posted by:
+									<a href="mailto:<?php echo $post[7]; ?>" style="color: <?=$color;?>;">
+										<strong><?php echo $post[2] . ' ' . $post[3] . ' ' . $post[4] . ' (' . $post[8] . ')'; ?> </strong>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<hr/>
+<?php
+		}
+	}
+else {
+	echo '<p>No Obituaries to display.</p>';
+	}
+?>
+                </div>
+            </div>
+			
+			<hr/>
+			
+			<div class="row">
+                <div class="col-lg-12">
+				<h4 id="startform">Post a New Obituary</h4>
+<?php
+$field_values['first_name']  = $user_fields['first_name'];
+$field_values['maiden_name'] = $user_fields['maiden_name'];
+$field_values['last_name']   = $user_fields['marriedlast_name'];
+$field_values['class_year']  = $user_fields['class_year'];
+$field_values['email']       = $user_fields['e-mail_address'];
+	
+gravity_form( 4, false, false, false, $field_values, false, $tabindex, $echo = true );
+
+?>
+                </div>
+            </div>
+			
+        </div>
+    </section>
+<?php
+get_footer();
+?>
+<script>
+	jQuery(document).ready(function($){
+		$("#gotoform").click(function(){
+			 $('html,body').animate({
+				scrollTop: $("#startform").offset().top-250},
+				'slow');
+			return false;
+		});
+	});
+	</script>
