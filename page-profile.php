@@ -159,9 +159,50 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="home_phone">Home Phone</label>
 							<input type="text" class="form-control" id="home_phone" name="home_phone" value="<?php echo $user_fields['home_phone']; ?>">
 						</div>
+                                            	<div class="form-group">
+							<label style="font-size: 20px;" for="job_title">Job Title</label>
+							<input type="text" class="form-control" id="job_title" name="job_title" value="<?php echo $user_fields['job_title']; ?>">
+						</div>
+                                            	<div class="form-group">
+							<label style="font-size: 20px;" for="industry">Industry</label>
+                                                        <?php
+                                                        $user_fields = get_field_object('field_5cf58a0763d85');
+                                                        if( $user_fields['choices'] ): ?>
+                                                            <select class="form-control" id="industry" name="industry">
+                                                                <?php foreach( $user_fields['choices'] as $value => $label ): ?>
+                                                                    <option><?php echo $label; ?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        <?php endif; ?>  
+                                                </div>
+                                            
+                                            	<div class="form-group">
+							<label style="font-size: 20px;" for="college_attended">College Attended</label>
+							<input type="text" class="form-control" id="college_attended" name="college_attended" value="<?php echo $user_fields['college_attended']; ?>">
+						</div>
+                                            	<div class="form-group">
+							<label style="font-size: 20px;" for="advanced_degrees">Advanced Degrees</label>
+                                                        <?php
+                                                        $user_fields = get_field_object('field_5cf58aad63d88');
+                                                        if( $user_fields['choices'] ): ?>
+                                                            <select class="form-control" id="advanced_degrees" name="advanced_degrees">
+                                                                <?php foreach( $user_fields['choices'] as $value => $label ): ?>
+                                                                    <option><?php echo $label; ?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        <?php endif; ?>  
+                                                </div>
 						<div class="form-group">
-							<label style="font-size: 20px;" for="e-mail_address">E-Mail Address</label>
-							<input type="text" class="form-control" id="e-mail_address" name="e-mail_address" value="<?php echo $user_fields['e-mail_address']; ?>">
+							<label style="font-size: 20px;" for="employer">Employer</label>
+							<input type="text" class="form-control" id="employer" name="employer" value="<?php echo $user_fields['employer']; ?>">
+						</div>
+                                            	<div class="form-group">
+							<label style="font-size: 20px;" for="link_to_facebook_profile">Link to Facebook profile</label>
+							<input type="url" class="form-control" id="link_to_facebook_profile" name="link_to_facebook_profile" value="<?php echo $user_fields['link_to_facebook_profile']; ?>">
+						</div>
+                                            	<div class="form-group">
+							<label style="font-size: 20px;" for="link_to_linkedin_profile">Link to Linkedin profile</label>
+							<input type="url" class="form-control" id="link_to_linkedin_profile" name="link_to_linkedin_profile" value="<?php echo $user_fields['link_to_linkedin_profile']; ?>">
 						</div>
 						<button type="submit" class="btn btn-default" style="font-size: 20px;">Save Profile</button>
 					</form>
