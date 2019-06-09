@@ -15,7 +15,7 @@ if(!empty($_POST)) {
 	if($mail_changes) {
 	
 		// multiple recipients
-		// $to  = 'jblanton@blueskyci.com';
+		$to  = 'stephanieo@blueskyci.com';
 		$to  = 'bbeardsley@saintursula.org' . ', ';
 		$to  = 'mspille@saintursula.org' . ', ';
 		$to  = 'mlintner@saintursula.org' . ', ';
