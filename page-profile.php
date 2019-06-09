@@ -1,3 +1,4 @@
+
 <?php acf_form_head(); ?>
 <?php
 session_start();
@@ -179,7 +180,7 @@ foreach ($children as $child) {
                                             
                                             	<div class="form-group">
 							<label style="font-size: 20px;" for="college_attended">College Attended</label>
-							<input type="text" class="form-control" id="college_attended" name="college_attended" value="<?php echo $user_fields['college_attended']; ?>">
+							<input type="text" class="form-control" id="college_attended" name="college_attended" value="<?php echo $user_fields['field_5cf58a9e63d87']; ?>">
 						</div>
                                             	<div class="form-group">
 							<label style="font-size: 20px;" for="advanced_degrees">Advanced Degrees</label>
