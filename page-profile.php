@@ -1,5 +1,4 @@
-
-
+<?php acf_form_head(); ?>
 <?php
 session_start();
 
@@ -60,7 +59,7 @@ if(!empty($_POST)) {
 
 $page_fields = get_fields();
 $user_fields = get_fields($_SESSION['level10']['purl_id']);
-acf_form_head();
+
 
 get_header();
 if ( have_posts() ) : while ( have_posts() ) : the_post();
