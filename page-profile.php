@@ -15,7 +15,7 @@ if(!empty($_POST)) {
 	if($mail_changes) {
 	
 		// multiple recipients
-		// $to  = 'stephanieo@blueskyci.com';
+		//$to  = 'stephanieo@blueskyci.com';
 		$to  = 'bbeardsley@saintursula.org' . ', ';
 		$to  = 'mspille@saintursula.org' . ', ';
 		$to  = 'mlintner@saintursula.org' . ', ';
@@ -48,7 +48,7 @@ if(!empty($_POST)) {
 
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers .= 'To: Maggie Schwartz <mschwartz@blueskyci.com> , Barb Bryans <bbryans@saintursula.org> , Mary Ellen Lintner <mlintner@saintursula.org> , Meridith Spille <mspille@saintursula.org> ,<bbryans@saintursula.org> , Bailey 	   Beardsley <bbeardsley@saintursula.org>' . "\r\n"; 
+		$headers .= 'To: Stephanie Ortiz <stephanieo@blueskyci.com> , Barb Bryans <bbryans@saintursula.org> , Mary Ellen Lintner <mlintner@saintursula.org> , Meridith Spille <mspille@saintursula.org> ,<bbryans@saintursula.org> , Bailey 	   Beardsley <bbeardsley@saintursula.org>' . "\r\n"; 
 		$headers .= 'From: Updated Purl <no-reply@mysaintursula.com>' . "\r\n";
 
 		mail($to, $subject, $message, $headers);
