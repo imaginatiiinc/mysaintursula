@@ -15,11 +15,11 @@ if(!empty($_POST)) {
 	if($mail_changes) {
 	
 		// multiple recipients
-		$to  = 'stephanieo@blueskyci.com';
+		// $to  = 'stephanieo@blueskyci.com';
 		$to  = 'bbeardsley@saintursula.org' . ', ';
 		$to  = 'mspille@saintursula.org' . ', ';
 		$to  = 'mlintner@saintursula.org' . ', ';
-		$to .= 'mschwartz@blueskyci.com' . ', ';
+		$to .= 'stephanieo@blueskyci.com' . ', ';
 		$to.='AMcGraw@ursulinesofcincinnati.org';
                 //$to.='keyur4monto@gmail.com';
 		// subject
