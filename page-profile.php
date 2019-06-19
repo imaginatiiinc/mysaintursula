@@ -1,60 +1,66 @@
 
 <?php acf_form_head(); ?>
 <?php
-session_start();
+if(session_id() == '') {
+    session_start();
+}
 
 $page_fields = get_fields();
 $user_fields = get_fields($_SESSION['level10']['purl_id']);
 
+// echo "<pre>"; print_r($page_fields); die();
+
 if(!empty($_POST)) {
 	$mail_changes = false;
 	
+
 	foreach ($_POST as $key => $value) {
-		if($user_fields[$key] != $value) $mail_changes = true;
-		update_field($key, $value, $_SESSION['level10']['purl_id']);
+		if(!isset($user_fields[$key]) || $user_fields[$key] != $value) $mail_changes = true;
+			update_field($key, $value, $_SESSION['level10']['purl_id']);
 		}
 		
-	if($mail_changes) {
-	
-		// multiple recipients
-		//$to  = 'stephanieo@blueskyci.com';
-		$to  = 'bbeardsley@saintursula.org' . ', ';
-		$to  = 'mspille@saintursula.org' . ', ';
-		$to  = 'mlintner@saintursula.org' . ', ';
-		$to .= 'stephanieo@blueskyci.com' . ', ';
-		$to.='AMcGraw@ursulinesofcincinnati.org';
-                //$to.='keyur4monto@gmail.com';
-		// subject
-		$subject = 'MySaintUrsula.com - Updated Purl';
+		if($mail_changes) {
+		
+			// multiple recipients
+			//$to  = 'stephanieo@blueskyci.com';
+			$to  = 'bbeardsley@saintursula.org' . ', ';
+			$to  = 'mspille@saintursula.org' . ', ';
+			$to  = 'mlintner@saintursula.org' . ', ';
+			$to .= 'stephanieo@blueskyci.com' . ', ';
+			$to.='AMcGraw@ursulinesofcincinnati.org';
+	                //$to.='keyur4monto@gmail.com';
+			// subject
+			$subject = 'MySaintUrsula.com - Updated Purl';
 
-		// message
-		$message = '
-		<html>
-		<head>
-		  <title>MySaintUrsula.com - Updated Purl</title>
-		</head>
-		<body>
-		  <p>The following updated PURL information has been submitted. An asterisk indicates a change.</p>';
-		foreach ($_POST as $key => $value) {
-			if($user_fields[$key] != $value) {
-				$message .= '<p><strong>' . $key . ':</strong> ' . $value . '*</p>'; 
+			// message
+			$message = '
+			<html>
+			<head>
+			  <title>MySaintUrsula.com - Updated Purl</title>
+			</head>
+			<body>
+			  <p>The following updated PURL information has been submitted. An asterisk indicates a change.</p>';
+			foreach ($_POST as $key => $value) {
+				if($user_fields[$key] != $value) {
+					$message .= '<p><strong>' . $key . ':</strong> ' . $value . '*</p>'; 
+					}
+				else {
+					$message .= '<p><strong>' . $key . ':</strong> ' . $value . '</p>'; 
+					}
 				}
-			else {
-				$message .= '<p><strong>' . $key . ':</strong> ' . $value . '</p>'; 
-				}
-			}
-		$message .= '
-		</body>
-		</html>
-		';
+			$message .= '
+			</body>
+			</html>
+			';
 
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers .= 'To: Stephanie Ortiz <stephanieo@blueskyci.com> , Barb Bryans <bbryans@saintursula.org> , Mary Ellen Lintner <mlintner@saintursula.org> , Meridith Spille <mspille@saintursula.org> ,<bbryans@saintursula.org> , Bailey 	   Beardsley <bbeardsley@saintursula.org>' . "\r\n"; 
-		$headers .= 'From: Updated Purl <no-reply@mysaintursula.com>' . "\r\n";
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$headers .= 'To: Stephanie Ortiz <stephanieo@blueskyci.com> , Barb Bryans <bbryans@saintursula.org> , Mary Ellen Lintner <mlintner@saintursula.org> , Meridith Spille <mspille@saintursula.org> ,<bbryans@saintursula.org> , Bailey 	   Beardsley <bbeardsley@saintursula.org>' . "\r\n"; 
+			$headers .= 'From: Updated Purl <no-reply@mysaintursula.com>' . "\r\n";
 
-		mail($to, $subject, $message, $headers);
-	
+			mail($to, $subject, $message, $headers);
+
+			die("<script> window.location = '/profile'; </script>");
 		}
 	}
 
@@ -165,14 +171,15 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="job_title">Job Title</label>
 							<input type="text" class="form-control" id="job_title" name="job_title" value="<?php echo $user_fields['job_title']; ?>">
 						</div>
-                                            	<div class="form-group">
+						<div class="form-group">
 							<label style="font-size: 20px;" for="industry">Industry</label>
                                                         <?php
-                                                        $user_fields = get_field_object('field_5cf58a0763d85');
-                                                        if( $user_fields['choices'] ): ?>
+                                                        $industry_field = get_field_object('field_5cf58a0763d85');
+                                                        if( $industry_field['choices'] ): ?>
                                                             <select class="form-control" id="industry" name="industry">
-                                                                <?php foreach( $user_fields['choices'] as $value => $label ): ?>
-                                                                    <option><?php echo $label; ?></option>
+                                                                <?php foreach( $industry_field['choices'] as $value => $label ): ?>
+                                                                	<?php $selected = ($user_fields['industry']==$label)?'selected':'' ?>
+                                                                    <option <?=$selected?>><?php echo $label; ?></option>
                                                                 <?php endforeach; ?>
                                                             </select>
                                                         <?php endif; ?>  
@@ -182,18 +189,18 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="college_attended">College Attended</label>
 							<input type="text" class="form-control" id="college_attended" name="college_attended" value="<?php echo $user_fields['college_attended']; ?>">
 						</div>
-                                            	<div class="form-group">
+                        <div class="form-group">
 							<label style="font-size: 20px;" for="advanced_degrees">Advanced Degrees</label>
-                                                        <?php
-                                                        $user_fields = get_field_object('field_5cf58aad63d88');
-                                                        if( $user_fields['choices'] ): ?>
-                                                            <select class="form-control" id="advanced_degrees" name="advanced_degrees">
-                                                                <?php foreach( $user_fields['choices'] as $value => $label ): ?>
-                                                                    <option><?php echo $label; ?></option>
-                                                                <?php endforeach; ?>
-                                                            </select>
-                                                        <?php endif; ?>  
-                                                </div>
+                            <?php  $advance_degree_field = get_field_object('field_5cf58aad63d88');
+                            if( $advance_degree_field['choices'] ): ?>
+                                <select class="form-control" id="advanced_degrees" name="advanced_degrees">
+                                    <?php foreach( $advance_degree_field['choices'] as $value => $label ): ?>
+                                    	<?php $selected = ($user_fields['advanced_degrees']==$label)?'selected':'' ?>
+                                        <option <?=$selected?>><?php echo $label; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            <?php endif; ?>  
+                    	</div>
 						<div class="form-group">
 							<label style="font-size: 20px;" for="employer">Employer</label>
 							<input type="text" class="form-control" id="employer" name="employer" value="<?php echo $user_fields['employer']; ?>">
@@ -202,9 +209,60 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="link_to_facebook_profile">Link to Facebook profile</label>
 							<input type="url" class="form-control" id="link_to_facebook_profile" name="link_to_facebook_profile" value="<?php echo $user_fields['link_to_facebook_profile']; ?>">
 						</div>
-                                            	<div class="form-group">
+                        <div class="form-group">
 							<label style="font-size: 20px;" for="link_to_linkedin_profile">Link to Linkedin profile</label>
 							<input type="url" class="form-control" id="link_to_linkedin_profile" name="link_to_linkedin_profile" value="<?php echo $user_fields['link_to_linkedin_profile']; ?>">
+						</div>
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="mentor_students">Mentor Students</label>
+							<input type="text" class="form-control" id="mentor_students" name="mentor_students" value="<?php echo $user_fields['mentor_students']; ?>">
+						</div>
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="be_a_guest_speaker_to_students">Be a guest speaker to students</label>
+							<input type="text" class="form-control" id="be_a_guest_speaker_to_students" name="be_a_guest_speaker_to_students" value="<?php echo $user_fields['be_a_guest_speaker_to_students']; ?>">
+						</div>
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="serve_as_a_class_agent">Serve as a Class Agent</label>
+							<input type="text" class="form-control" id="serve_as_a_class_agent" name="serve_as_a_class_agent" value="<?php echo $user_fields['serve_as_a_class_agent']; ?>">
+						</div>
+						
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="committee_participation">Advanced Degrees</label>
+                            <?php  $committee_participation_field = get_field_object('field_5d04ef0675f6e');
+                            if( $committee_participation_field['choices'] ): ?>
+                                <select class="form-control" id="committee_participation" name="committee_participation">
+                                    <?php foreach( $committee_participation_field['choices'] as $value => $label ): ?>
+                                    	<?php $selected = ($user_fields['committee_participation']==$label)?'selected':'' ?>
+                                        <option <?=$selected?>><?php echo $label; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            <?php endif; ?>  
+                    	</div>
+						
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="service_opportunities">Committee participation</label>
+                            <?php  $service_opportunities_field = get_field_object('field_5d04ef3975f6f');
+                            if( $service_opportunities_field['choices'] ): ?>
+                                <select class="form-control" id="service_opportunities" name="service_opportunities">
+                                    <?php foreach( $service_opportunities_field['choices'] as $value => $label ): ?>
+                                    	<?php $selected = ($user_fields['service_opportunities']==$label)?'selected':'' ?>
+                                        <option <?=$selected?>><?php echo $label; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            <?php endif; ?>  
+                    	</div>
+
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="networking_with_alumnae">Networking with alumnae</label>
+							<input type="text" class="form-control" id="networking_with_alumnae" name="networking_with_alumnae" value="<?php echo $user_fields['networking_with_alumnae']; ?>">
+						</div>
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="internships_available_at_work_place">Internships available at work place</label>
+							<input type="text" class="form-control" id="internships_available_at_work_place" name="internships_available_at_work_place" value="<?php echo $user_fields['internships_available_at_work_place']; ?>">
+						</div>
+                        <div class="form-group">
+							<label style="font-size: 20px;" for="provide_shadow_days_or_internships_for_students_at_your_workplace">Provide shadow days or internships for students at your workplace</label>
+							<input type="text" class="form-control" id="provide_shadow_days_or_internships_for_students_at_your_workplace" name="provide_shadow_days_or_internships_for_students_at_your_workplace" value="<?php echo $user_fields['provide_shadow_days_or_internships_for_students_at_your_workplace']; ?>">
 						</div>
 						<button type="submit" class="btn btn-default" style="font-size: 20px;">Save Profile</button>
 					</form>

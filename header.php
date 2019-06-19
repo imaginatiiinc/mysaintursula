@@ -135,6 +135,8 @@ else {
                     <li class=""><a href="<?php echo site_url('/calendar/'); ?>">Calendar</a></li>
                     <li class=""><a href="<?php echo site_url('/contact/'); ?>">Contact</a></li>
                     <li class=""><a href="<?php echo site_url('/profile/'); ?>">Profile</a></li>
+                    <li class=""><a href="<?php echo site_url('/weddingsbabiesandclassnotes/'); ?>">Class notes</a></li>
+                    <li class=""><a href="<?php echo site_url('/jobposting/'); ?>">Job Posting</a></li>
                     <li class=""><a href="<?php echo site_url('/logout/'); ?>">Logout</a></li>
                 </ul>
             </div>
