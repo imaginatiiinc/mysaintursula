@@ -36,6 +36,16 @@ h6 {
     font-weight: 700;
 }
 
+.whiteborder h3{
+    background: #000000bf !important;
+    width: 100%!important; 
+    position: absolute !important; 
+    bottom: 0 !important;
+    font-size: 17px !important;
+    margin: 0 0 0 0 !important; 
+    padding: 10px !important;
+}
+
 .img-centered {
     margin: 0 auto;
 }
@@ -122,11 +132,11 @@ header .intro-text .skills {
 }
 
 .navbar .navbar-nav {
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
 }
 
 .navbar .navbar-nav li a:focus {
-    outline: 0;
+    outline: 0; 
 }
 
 .navbar-default,
@@ -140,7 +150,7 @@ section {
 
 section h2 {
     margin: 0;
-	margin-bottom: 20px;
+    margin-bottom: 20px;
     font-size: 3em;
 }
 
@@ -207,7 +217,7 @@ footer .footer-col {
 
 footer .footer-below {
     padding: 25px 0;
-	color: rgb(1, 44, 95);
+    color: rgb(1, 44, 95);
     background-color: rgb(254, 205, 51);
 }
 
@@ -230,47 +240,47 @@ footer .footer-below {
 
 
 nav .logo img {
-	width: 250px;
-	padding: 20px;
-	-webkit-transition: all .5s ease;
-	-moz-transition: all .5s ease;
-	-o-transition: all .5s ease;
-	transition: all .5s ease;
-	}
-	
+    width: 250px;
+    padding: 20px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    }
+    
 .navbar-nav > li > a {
-	margin-top: 34px;
-	}
+    margin-top: 34px;
+    }
 
 @media(min-width:768px) {
-	nav .logo img {
-		width: 300px;
-		}
-		
-	.navbar-shrink .logo img {
-		width: 250px;
-		}
-		
-	.navbar-shrink .navbar-nav > li > a {
-		margin-top: 20px;
-		}
-	}
-	
+    nav .logo img {
+        width: 300px;
+        }
+        
+    .navbar-shrink .logo img {
+        width: 250px;
+        }
+        
+    .navbar-shrink .navbar-nav > li > a {
+        margin-top: 20px;
+        }
+    }
+    
 ul li {
-	font-size: 20px;
-	}
-	
+    font-size: 14px;
+    }
+    
 @media(min-width:768px) and (max-width:1199px) {
-	nav .logo img {
-		width: 200px;
-		}
-	nav ul.nav li {
-		font-size: 14px;
-		}
-	nav ul.nav li a {
-		margin-top: 20px;
-		padding-left: 6px;
-		padding-right: 6px;
-		}
-	}
-	
+    nav .logo img {
+        width: 200px;
+        }
+    nav ul.nav li {
+        font-size: 14px;
+        }
+    nav ul.nav li a {
+        margin-top: 20px;
+        padding-left: 6px;
+        padding-right: 6px;
+        }
+    }
+    

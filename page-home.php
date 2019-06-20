@@ -169,8 +169,8 @@ if(!empty($posts)) {
 						<div class="col-lg-6">
 							<div class="row">
 								<a href="<?php echo site_url('/' . $posts[1]->post_name . '/'); ?>">
-									<div class="col-lg-6 whiteborder" style="display:table;background-color: <?php echo get_color(get_the_category($posts[1]->ID)[0]->name); ?>; height: 200px; background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
-										<h3 style="color: white; text-align: center;display:table-cell;vertical-align: middle;  text-shadow: 2px 2px 4px #000000;"><?php echo $posts[1]->post_title; ?></h3>
+									<div class="col-lg-6 whiteborder four_images" style="display:table;background-color: <?php echo get_color(get_the_category($posts[1]->ID)[0]->name); ?>; height: 200px;padding: 0 !important;margin: 0 !important; background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
+										<h3 style="color: white; text-align: center;display:table-cell;vertical-align: middle;  text-shadow: 2px 2px 4px #000000;background: #000000bf !important;width: 100% !important; position: absolute !important; bottom: 0 !important;font-size: 17px !important;margin: 0 0 0 0 !important; padding: 10px !important;"><?php echo $posts[1]->post_title; ?></h3>
 									</div>
 								</a>
 <?php
@@ -179,8 +179,8 @@ if(!empty($posts)) {
 			$fields = get_fields($posts[2]->ID);
 ?>
 								<a href="<?php echo site_url('/' . $posts[2]->post_name . '/'); ?>">
-									<div class="col-lg-6 whiteborder" style="display:table;background-color: <?php echo get_color(get_the_category($posts[2]->ID)[0]->name); ?>; height: 200px; background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
-										<h3 style="color: white; text-align: center; display:table-cell;vertical-align: middle; text-shadow: 2px 2px 4px #000000;"><?php echo $posts[2]->post_title; ?></h3>
+									<div class="col-lg-6 whiteborder" style="display:table;background-color: <?php echo get_color(get_the_category($posts[2]->ID)[0]->name); ?>; height: 200px;padding: 0 !important;margin: 0 !important;  background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
+										<h3 style="color: white; text-align: center; display:table-cell;vertical-align: middle; text-shadow: 2px 2px 4px #000000;background: #000000bf !important;width: 100% !important; position: absolute !important; bottom: 0 !important;font-size: 17px !important;margin: 0 0 0 0 !important; padding: 10px; !important"><?php echo $posts[2]->post_title; ?></h3>
 									</div>
 								</a>
 <?php
@@ -193,8 +193,8 @@ if(!empty($posts)) {
 			$fields = get_fields($posts[3]->ID);
 ?>
 								<a href="<?php echo site_url('/' . $posts[3]->post_name . '/'); ?>">
-									<div class="col-lg-6 whiteborder" style="display:table;background-color: <?php echo get_color(get_the_category($posts[3]->ID)[0]->name); ?>; height: 200px; background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
-										<h3 style="color: white; text-align: center; display:table-cell;vertical-align: middle; text-shadow: 2px 2px 4px #000000;"><?php echo $posts[3]->post_title; ?></h3>
+									<div class="col-lg-6 whiteborder" style="display:table;background-color: <?php echo get_color(get_the_category($posts[3]->ID)[0]->name); ?>; height: 200px;padding: 0 !important;margin: 0 !important;  background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
+										<h3 style="color: white; text-align: center; display:table-cell;vertical-align: middle; text-shadow: 2px 2px 4px #000000;background: #000000bf !important;width: 100% !important; position: absolute !important; bottom: 0 !important;font-size: 17px !important;margin: 0 0 0 0 !important; padding: 10px !important;"><?php echo $posts[3]->post_title; ?></h3>
 									</div>
 								</a>
 <?php
@@ -207,8 +207,8 @@ if(!empty($posts)) {
 			$fields = get_fields($posts[4]->ID);
 ?>
 								<a href="<?php echo site_url('/' . $posts[4]->post_name . '/'); ?>">
-									<div class="col-lg-6 whiteborder" style="display:table;background-color: <?php echo get_color(get_the_category($posts[4]->ID)[0]->name); ?>; height: 200px; background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
-										<h3 style="color: white; text-align: center;display:table-cell;vertical-align: middle; text-shadow: 2px 2px 4px #000000;"><?php echo $posts[4]->post_title; ?></h3>
+									<div class="col-lg-6 whiteborder" style="display:table;background-color: <?php echo get_color(get_the_category($posts[4]->ID)[0]->name); ?>; height: 200px;padding: 0 !important;margin: 0 !important;  background-repeat: no-repeat; background-size: cover; <?php if(!empty($fields['featured_image']['url'])) echo 'background-image: url(' . $fields['featured_image']['url'] . ');';?>">
+										<h3 style="color: white; text-align: center;display:table-cell;vertical-align: middle; text-shadow: 2px 2px 4px #000000;background: #000000bf !important;width: 100%!important; position: absolute !important; bottom: 0 !important;font-size: 17px !important;margin: 0 0 0 0 !important; padding: 10px !important;"><?php echo $posts[4]->post_title; ?></h3>
 									</div>
 								</a>
 <?php
