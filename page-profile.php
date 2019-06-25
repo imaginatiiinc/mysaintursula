@@ -1,7 +1,4 @@
 
-
-
-
 <?php acf_form_head(); ?>
 <?php
 if(session_id() == '') {
@@ -112,7 +109,12 @@ foreach ($children as $child) {
 				</div>
 			</div>
 <?php } ?>
-		
+			<style>
+				input[type=checkbox]{
+					position: initial !important;
+					margin: 0 !important;
+				}
+			</style>
             <div class="row">
                 <div class="col-lg-12">
                     <h2><?php the_title(); ?></h2>
@@ -216,25 +218,34 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="link_to_linkedin_profile">Link to Linkedin profile</label>
 							<input type="url" class="form-control" id="link_to_linkedin_profile" name="link_to_linkedin_profile" value="<?php echo $user_fields['link_to_linkedin_profile']; ?>">
 						</div>
+
                         <div class="form-group">
-                                                        <label style="font-size: 20px;" class="checkbox-inline" for="mentor_students">
-       
-							<input type="checkbox"   id="mentor_students" name="mentor_students" value="<?php echo $user_fields['mentor_students']; ?>">I'd like to Mentor Students</label>
-                                                       
-                        <div class="form-group">
-							<label  class="checkbox-inline" style="font-size: 20px;" for="be_a_guest_speaker_to_students">
-							<input type="checkbox" id="be_a_guest_speaker_to_students" name="be_a_guest_speaker_to_students" value="<?php echo $user_fields['be_a_guest_speaker_to_students']; ?>">I'd like to be a guest speaker to students</label>
+							<input type="hidden" class="" id="" name="mentor_students" value="0">
+							<label class="checkbox" style="font-size: 20px;" for="mentor_students">
+								<input type="checkbox" class="" id="mentor_students" name="mentor_students" value="1" <?php echo $user_fields['mentor_students'] ? 'checked':'' ?>>
+								I'd like to Mentor Students
+							</label>
 						</div>
                         <div class="form-group">
-							<label class="checkbox-inline" style="font-size: 20px;" for="serve_as_a_class_agent">
-							<input type="checkbox"   id="serve_as_a_class_agent" name="serve_as_a_class_agent" value="<?php echo $user_fields['serve_as_a_class_agent']; ?>">I'd like to serve as a Class Agent</label>
+							<input type="hidden" class="" id="" name="be_a_guest_speaker_to_students" value="0">
+							<label class="checkbox" style="font-size: 20px;" for="be_a_guest_speaker_to_students">
+								<input type="checkbox" class="" id="be_a_guest_speaker_to_students" name="be_a_guest_speaker_to_students" value="1" <?php echo $user_fields['be_a_guest_speaker_to_students'] ? 'checked' : '' ?>>
+								I'd like to be a guest speaker to students
+							</label>
+						</div>
+                        <div class="form-group">
+							<input type="hidden" class="" id="" name="serve_as_a_class_agent" value="0">
+							<label class="checkbox" style="font-size: 20px;" for="serve_as_a_class_agent">
+								<input type="checkbox" class="" id="serve_as_a_class_agent" name="serve_as_a_class_agent" value="1" <?php echo $user_fields['serve_as_a_class_agent'] ? 'checked' : '' ?>>
+								I'd like to serve as a Class Agent
+							</label>
 						</div>
 						
                         <div class="form-group">
-			<label style="font-size: 20px;" for="committee_participation">Committee participation</label>		 
+							<label style="font-size: 20px;" for="committee_participation">Committee participation</label>
                             <?php  $committee_participation_field = get_field_object('field_5d04ef0675f6e');
                             if( $committee_participation_field['choices'] ): ?>
-                                <select multiple class="form-control" id="committee_participation" name="committee_participation">
+                                <select class="form-control" id="committee_participation" name="committee_participation">
                                     <?php foreach( $committee_participation_field['choices'] as $value => $label ): ?>
                                     	<?php $selected = ($user_fields['committee_participation']==$label)?'selected':'' ?>
                                         <option <?=$selected?>><?php echo $label; ?></option>
@@ -247,7 +258,7 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="service_opportunities">Service Opportunities</label>
                             <?php  $service_opportunities_field = get_field_object('field_5d04ef3975f6f');
                             if( $service_opportunities_field['choices'] ): ?>
-                                <select multiple class="form-control" id="service_opportunities" name="service_opportunities">
+                                <select class="form-control" id="service_opportunities" name="service_opportunities">
                                     <?php foreach( $service_opportunities_field['choices'] as $value => $label ): ?>
                                     	<?php $selected = ($user_fields['service_opportunities']==$label)?'selected':'' ?>
                                         <option <?=$selected?>><?php echo $label; ?></option>
@@ -257,16 +268,25 @@ foreach ($children as $child) {
                     	</div>
 
                         <div class="form-group">
+							<input type="hidden" class="" id="" name="networking_with_alumnae" value="0">
 							<label class="checkbox" style="font-size: 20px;" for="networking_with_alumnae">
-							<input type="checkbox"  id="networking_with_alumnae" name="networking_with_alumnae" value="<?php echo $user_fields['networking_with_alumnae']; ?>">I'd like to network with alumnae</label>
+								<input type="checkbox" class="" id="networking_with_alumnae" name="networking_with_alumnae" value="1" <?php echo $user_fields['networking_with_alumnae'] ? 'checked' : '' ?>>
+								I'd like to network with alumnae
+							</label>
 						</div>
                         <div class="form-group">
+							<input type="hidden" class="" id="" name="internships_available_at_work_place" value="0">
 							<label class="checkbox" style="font-size: 20px;" for="internships_available_at_work_place">
-							<input type="checkbox"   id="internships_available_at_work_place" name="internships_available_at_work_place" value="<?php echo $user_fields['internships_available_at_work_place']; ?>">I have internships available at my work place</label>
+								<input type="checkbox" class="" id="internships_available_at_work_place" name="internships_available_at_work_place" value="1" <?php echo $user_fields['internships_available_at_work_place'] ? 'checked' : '' ?>>
+								I have internships available at my work place
+							</label>
 						</div>
                         <div class="form-group">
+							<input type="hidden" class="" id="" name="provide_shadow_days_or_internships_for_students_at_your_workplace" value="0">
 							<label class="checkbox" style="font-size: 20px;" for="provide_shadow_days_or_internships_for_students_at_your_workplace">
-							<input type="checkbox" id="provide_shadow_days_or_internships_for_students_at_your_workplace" name="provide_shadow_days_or_internships_for_students_at_your_workplace" value="<?php echo $user_fields['provide_shadow_days_or_internships_for_students_at_your_workplace']; ?>">I'd like to provide shadow days or internships for students at my workplace</label>
+								<input type="checkbox" class="" id="provide_shadow_days_or_internships_for_students_at_your_workplace" name="provide_shadow_days_or_internships_for_students_at_your_workplace" value="1" <?php echo $user_fields['provide_shadow_days_or_internships_for_students_at_your_workplace'] ? 'checked' : '' ?>>
+								I'd like to provide shadow days or internships for students at my workplace
+							</label>
 						</div>
 						<button type="submit" class="btn btn-default" style="font-size: 20px;">Save Profile</button>
 					</form>
