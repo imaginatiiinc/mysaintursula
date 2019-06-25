@@ -128,20 +128,6 @@ get_header(); ?>
 </section>
 
 
-<section>
-    <div class="container">		
-        <div class="row">
-            <div class="col-lg-12">
-                <h2><?php echo apply_filters('the_title', $title); ?></h2>
-                <?php echo apply_filters('the_content', $content); ?>
-                <form action="">                	
-                	<input type="text" name="q" value="<?php echo $q ?>">
-                	<input type="submit" value="Search">
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
 
 <?php if ( have_posts() ) : 
 	while ( have_posts() ) : 
