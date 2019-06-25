@@ -8,13 +8,16 @@ if(session_id() == '') {
 $page_fields = get_fields();
 $user_fields = get_fields($_SESSION['level10']['purl_id']);
 
-// echo "<pre>"; print_r($page_fields); die();
+// echo "<pre>"; print_r($user_fields); die();
 
 if(!empty($_POST)) {
 	$mail_changes = false;
 	
 
 	foreach ($_POST as $key => $value) {
+		if($key == 'committee_participation' || $key == 'service_opportunities'){
+			//$value = serialize($value);
+		}
 		if(!isset($user_fields[$key]) || $user_fields[$key] != $value) $mail_changes = true;
 			update_field($key, $value, $_SESSION['level10']['purl_id']);
 		}
@@ -41,13 +44,15 @@ if(!empty($_POST)) {
 			<body>
 			  <p>The following updated PURL information has been submitted. An asterisk indicates a change.</p>';
 			foreach ($_POST as $key => $value) {
+				if(is_array($value)){
+					$value = implode(', ', $value);
+				}
 				if($user_fields[$key] != $value) {
 					$message .= '<p><strong>' . $key . ':</strong> ' . $value . '*</p>'; 
-					}
-				else {
+				}else{
 					$message .= '<p><strong>' . $key . ':</strong> ' . $value . '</p>'; 
-					}
 				}
+			}
 			$message .= '
 			</body>
 			</html>
@@ -245,9 +250,13 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="committee_participation">Committee participation</label>
                             <?php  $committee_participation_field = get_field_object('field_5d04ef0675f6e');
                             if( $committee_participation_field['choices'] ): ?>
-                                <select class="form-control" id="committee_participation" name="committee_participation">
-                                    <?php foreach( $committee_participation_field['choices'] as $value => $label ): ?>
-                                    	<?php $selected = ($user_fields['committee_participation']==$label)?'selected':'' ?>
+                                <select class="form-control" id="committee_participation" name="committee_participation[]" multiple>
+                                    <?php $committee_participation = $user_fields['committee_participation'];
+                                	if(!empty($committee_participation) && !is_array($committee_participation)){
+                                		$committee_participation = unserialize($committee_participation);
+                                	}
+                                	foreach( $committee_participation_field['choices'] as $value => $label ): ?>
+                                    	<?php $selected = in_array($label, $committee_participation) ? 'selected':'' ?>
                                         <option <?=$selected?>><?php echo $label; ?></option>
                                     <?php endforeach; ?>
                                 </select>
@@ -258,9 +267,14 @@ foreach ($children as $child) {
 							<label style="font-size: 20px;" for="service_opportunities">Service Opportunities</label>
                             <?php  $service_opportunities_field = get_field_object('field_5d04ef3975f6f');
                             if( $service_opportunities_field['choices'] ): ?>
-                                <select class="form-control" id="service_opportunities" name="service_opportunities">
-                                    <?php foreach( $service_opportunities_field['choices'] as $value => $label ): ?>
-                                    	<?php $selected = ($user_fields['service_opportunities']==$label)?'selected':'' ?>
+                                <select class="form-control" id="service_opportunities" name="service_opportunities[]" multiple>
+                                	<?php $service_opportunities = $user_fields['service_opportunities'];
+                                	if(!empty($service_opportunities) && !is_array($service_opportunities)){
+                                		$service_opportunities = unserialize($service_opportunities);
+                                	}
+
+	                                foreach( $service_opportunities_field['choices'] as $value => $label ): ?>
+                                    	<?php $selected = in_array($label, $service_opportunities) ? 'selected':'' ?>
                                         <option <?=$selected?>><?php echo $label; ?></option>
                                     <?php endforeach; ?>
                                 </select>
