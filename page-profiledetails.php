@@ -42,22 +42,29 @@ get_header(); ?>
 <?php if ( have_posts() ) : 
 	while ( have_posts() ) : 
 		the_post(); ?>
-		<section>
+		<section class="details_sections__">
 			<div class="container">		
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-8 col-lg-offset-2">
 						<h2><?php the_title(); ?></h2>
 						<?php foreach (get_field_objects() as $key => $field): ?>
 							<?php if ($field['type']!='checkbox' && !empty($field['value'])): ?>
-								<?=$field['label']?>: 
-								<?php if ($field['type']=='checkbox'): ?>
-									<?=$field['value']?'YES':'NO'?>
-								<?php elseif ($field['type']=='select' && is_array($field['value'])): ?>
-									<?=implode(', ', $field['value']) ?>
-								<?php else: ?>
-									<?=$field['value']?>
-								<?php endif ?>
-								<br>
+								<div class="row">
+									<div class="col-sm-3 name_lable">
+										<label><?=$field['label']?>:</label> 
+									</div>
+									<div class="col-sm-9">
+										<p>
+										<?php if ($field['type']=='checkbox'): ?>
+											<?=$field['value']?'YES':'NO'?>
+										<?php elseif ($field['type']=='select' && is_array($field['value'])): ?>
+											<?=implode(', ', $field['value']) ?>
+										<?php else: ?>
+											<?=$field['value']?>
+										<?php endif ?>
+										</p>
+									</div>
+								</div>
 							<?php endif ?>
 								
 						<?php endforeach ?>

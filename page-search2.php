@@ -142,19 +142,19 @@ get_header(); ?>
 	</div>
 </header>
 
-<section>
+<section class="search_section_strt">
 	<div class="container">		
 		<div class="row">
 			<div class="col-lg-12">
 				<h6>Search by Keyword</h6>
 				<?php echo apply_filters('the_content', $content); ?>
-				<form action="/search2/">                	
-					<input type="text" name="q" value="<?php echo $q ?>">
-					<input type="submit" value="Search">
+				<form action="/search2/" class="form_satr">                	
+					<input type="text" name="q" value="<?php echo $q ?>" class="search_input">
+					<input type="submit" value="Search" class="search_btn">
 				</form>
 			</div>
 		</div>
-		<form style="border:1px solid #ddd; padding:1em; background:#ddd;" action="/search2/" method="POST">
+		<form style="border:1px solid #ddd; padding:25px; background:#ddd;" action="/search2/" method="POST">
 			<div class="row"> 
 				<div class="col-lg-3">
 					<h6>Filter by First Name</h6>
@@ -189,7 +189,7 @@ get_header(); ?>
 					<?php endif; ?>  
 				</div>
 			</div> 
-			<input type="submit" value="Search" name="ohter_search">
+			<input type="submit" value="Search" name="ohter_search" class="other_search">
 		</form>       
 	</div>
 </section>
@@ -201,14 +201,65 @@ get_header(); ?>
 			<div class="container">		
 				<div class="row">
 					<div class="col-lg-12">
-						<h2><a href="/profile/<?=get_the_ID()?>/details/"><?php the_title(); ?></a></h2>
-						First name: <?php the_field('first_name'); ?> <br>
-						Middle name: <?php the_field('maiden_name'); ?> <br>
-						Married/last name: <?php the_field('marriedlast_name'); ?> <br>
-						Class year: <?php the_field('class_year'); ?> <br>
+						<p class="divider"></p>
+						<h2 class="heading_search2"><a href="/profile/<?=get_the_ID()?>/details/" ><?php the_title(); ?></a></h2>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="name_lable">
+									<label>First name:</label>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="name_details_">
+									<p> <?php the_field('first_name'); ?></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="name_lable">
+									<label>Middle name:</label>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="name_details_">
+									<p> <?php the_field('maiden_name'); ?></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="name_lable">
+									<label>Married/last name:</label>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="name_details_">
+									<p> <?php the_field('marriedlast_name'); ?></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="name_lable">
+									<label>Class year:</label>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="name_details_">
+									<p><?php the_field('class_year'); ?></p>
+								</div>
+							</div>
+						</div>
+						
+						 
 					</div>
 				</div>
 			</div>
+
 		</section>
 	<?php endwhile; 
 	/*the_posts_pagination(
