@@ -100,6 +100,18 @@ if($q === NULL && $ohter_search !== NULL){
 	];
 }
 
+$meta_query = [
+	'relation'		=> 'AND',
+	[
+		'key'		=> 'consent_search_listing',
+		'value'		=> 1,
+		'compare'	=> '='
+	],
+	$meta_query,
+];
+
+// echo "<pre>"; print_r($meta_query); die();
+
 $args = [
 	'post_type'		=> 'purl',
 	'post_status'	=> 'publish',

@@ -8,7 +8,7 @@ if(session_id() == '') {
 $page_fields = get_fields();
 $user_fields = get_fields($_SESSION['level10']['purl_id']);
 
-// echo "<pre>"; print_r($user_fields); die();
+ // echo "<pre>"; print_r(get_field_objects($_SESSION['level10']['purl_id'])); die();
 
 if(!empty($_POST)) {
 	$mail_changes = false;
@@ -300,6 +300,13 @@ foreach ($children as $child) {
 							<label class="checkbox" style="font-size: 20px;" for="provide_shadow_days_or_internships_for_students_at_your_workplace">
 								<input type="checkbox" class="" id="provide_shadow_days_or_internships_for_students_at_your_workplace" name="provide_shadow_days_or_internships_for_students_at_your_workplace" value="1" <?php echo $user_fields['provide_shadow_days_or_internships_for_students_at_your_workplace'] ? 'checked' : '' ?>>
 								I'd like to provide shadow days or internships for students at my workplace
+							</label>
+						</div>
+                        <div class="form-group">
+							<input type="hidden" class="" id="" name="consent_search_listing" value="0">
+							<label class="checkbox" style="font-size: 20px;" for="consent_search_listing">
+								<input type="checkbox" class="" id="consent_search_listing" name="consent_search_listing" value="1" <?php echo $user_fields['consent_search_listing'] ? 'checked' : '' ?>>
+								Consent to Include in Search Listing
 							</label>
 						</div>
 						<button type="submit" class="btn btn-default" style="font-size: 20px;">Save Profile</button>
